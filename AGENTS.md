@@ -43,6 +43,19 @@ detached popup via window.open + BroadcastChannel, queue+playlists).
 - Never assume `api.Queue.goToPrevious/goToNext`, `api.Playlists`, or
   `api.Settings.subscribe` exist: feature-check + audio-element fallback.
 
+## Principles
+
+Keep it simple ([KISS](https://en.wikipedia.org/wiki/KISS_principle)) and
+boring. In practice:
+
+- The smallest change that solves the problem; nothing added "for later"
+  (YAGNI).
+- One place owns each fact; no repeated logic (DRY).
+- Each tool does one thing well and composes (unix philosophy, rule of
+  least power).
+- Readable beats clever; less is more (worse is better).
+- Delete what nothing needs instead of keeping it around.
+
 ## Verify
 
 - `node --check index.js`, `python3 -m json.tool package.json`
