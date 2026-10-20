@@ -5236,8 +5236,11 @@ function startPlaybackAnimation() {
       state.playback.status ===
       "playing"
     ) {
+      const now =
+      performance.now();
+
       const elapsed =
-      (performance.now() -
+      (now -
       state.playback.updatedAt) /
       1000;
 
@@ -5259,6 +5262,9 @@ function startPlaybackAnimation() {
 
       state.playback.seek =
       estimated;
+
+      state.playback.updatedAt =
+      now;
 
       updateProgressUI();
       updateActiveLyric();
